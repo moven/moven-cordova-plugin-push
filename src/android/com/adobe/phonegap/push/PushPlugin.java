@@ -611,7 +611,9 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
   }
 
   public static boolean isActive() {
-    return gWebView != null;
+    // return gWebView != null;
+    // Force the main activity to always re-launch if the app's not in the foreground
+    return isInForeground();
   }
 
   protected static void setRegistrationID(String token) {
